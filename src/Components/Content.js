@@ -5,26 +5,25 @@ import {Route, Switch} from 'react-router-dom';
 import './Content.css';
 
 class Content extends React.Component {
-    render() {
-        return (
-            <section className='content'>            
-            <Switch>
-                <Route path="/note/:id" render={props => (
-                    <NoteList {...props} data={this.props.data} view="note" />
+  render() {
+    return (
+      <section className='content'>            
+        <Switch>
+          <Route path="/note/:id" render={props => (
+            <NoteList {...props} view="note" />
+          )}/>
 
-                )}/>
+          <Route path="/folder/:id" render={props => (
+            <NoteList {...props} view="folder"/>
+          )} />
 
-                <Route path="/folder/:id" render={props => (
-                    <NoteList {...props} data={this.props.data} view="folder" />
-                )} />
-
-                <Route render={props => (
-                    <NoteList {...props} data={this.props.data} />
-                )} />
-            </Switch>
-            </section>
-        )
-    }
+          <Route render={props => (
+            <NoteList {...props}/>
+          )} />
+        </Switch>
+      </section>
+    )
+  }
 }
 
 export default Content;

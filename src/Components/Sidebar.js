@@ -13,15 +13,15 @@ class Sidebar extends React.Component {
             <section className='sidebar'>
                 <Switch>
                     <Route path="/note/:id" render={props => (
-                        <SelectedFolder {...props} data={this.props.data} />
+                        <SelectedFolder {...props}/>
                     )}/>
 
                     <Route path="/folder/:id" render={props => (
-                        <FolderList {...props} folders={this.props.data.folders} />
+                        <FolderList {...props}/>
                     )} />
 
                     <Route render={props => (
-                        <FolderList {...props} folders={this.props.data.folders} />
+                        <FolderList {...props}/>
                     )} />
                 </Switch>
             </section>
