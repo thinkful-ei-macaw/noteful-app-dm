@@ -50,13 +50,12 @@ class AddNote extends React.Component {
   
   handleSubmit = e => {
     e.preventDefault();
-    let form = e.target;
     let note ={
       id: cuid(),
-      name: form.name.value,
+      name: this.state.name.value,
       modified: new Date().toISOString(),
-      folderId: form.folderId.value,
-      content: form.content.value
+      folderId: this.state.folderId.value,
+      content: this.state.content.value
     }
 
     api.addNote(note)

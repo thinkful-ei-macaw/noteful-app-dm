@@ -42,10 +42,9 @@ class AddFolder extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    let form = e.target;
     let folder = {
       id: cuid(),
-      name: form.name.value
+      name: this.state.name.value
     }
 
     api.addFolder(folder)
