@@ -1,7 +1,7 @@
 import React from 'react';
 import cuid from 'cuid';
-import DataContext from '../DataContext';
 
+import DataContext from '../DataContext';
 import api from '../api';
 
 class AddNote extends React.Component {
@@ -63,7 +63,9 @@ class AddNote extends React.Component {
       .then(() => {
         this.context.addNoteSubmit(note);
       })
-      .catch((err)=>alert(err));
+      .catch((err) => {
+        throw new Error(err)
+      });
   }
 
   render() {

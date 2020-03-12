@@ -1,4 +1,5 @@
 import React from 'react';
+
 import DataContext from '../DataContext';
 
 class SelectedFolder extends React.Component {

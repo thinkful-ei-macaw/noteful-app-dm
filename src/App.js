@@ -6,19 +6,19 @@ import Header from './Components/Header';
 import Overlay from './Components/Overlay';
 import ErrorBoundary from './Components/ErrorBoundary';
 
-import api from './api';
-
 import DataContext from './DataContext';
+import api from './api';
 
 class App extends React.Component {
   state = {
     notes: [],
     folders: [],
     dialogOpen: false,
-    addMode: ""
+    addMode: "",
+    error: null
   }
 
-  handleAddClick = (type="") => {
+  handleAddClick = (type='') => {
     let currentState = {
       ...this.state,
       dialogOpen: type ? true : false,
@@ -67,7 +67,9 @@ class App extends React.Component {
         })
       })
       .catch(err => {
-        alert(err);
+        this.setState({
+          error: err
+        })
       })
   }
 
@@ -83,23 +85,19 @@ class App extends React.Component {
     return (
       <DataContext.Provider value={contextValue}>
         <div className="app">
-        <ErrorBoundary>
-          <Header />
-          <main>
-            <Sidebar />
-            <Content />
-          </main>
-          { this.state.dialogOpen ? (<Overlay />) : '' }
-        </ErrorBoundary>  
+          <ErrorBoundary appError={this.state.error}>
+            <Header />
+            <main>
+              <Sidebar />
+              <Content />
+            </main>
+            { this.state.dialogOpen ? (<Overlay />) : '' }
+          </ErrorBoundary>
         </div>
       </DataContext.Provider>
     );
   }
 
 }
-
-
-
-
 
 export default App;

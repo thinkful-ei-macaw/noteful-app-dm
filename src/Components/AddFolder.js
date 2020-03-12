@@ -1,7 +1,7 @@
 import React from 'react';
 import cuid from 'cuid';
-import DataContext from '../DataContext';
 
+import DataContext from '../DataContext';
 import api from '../api';
 
 class AddFolder extends React.Component {
@@ -52,7 +52,9 @@ class AddFolder extends React.Component {
       .then(() => {
         this.context.addFolderSubmit(folder);
       })
-      .catch((err)=>alert(err));
+      .catch((err) => {
+        throw new Error(err)
+      });
   }
 
   render() {

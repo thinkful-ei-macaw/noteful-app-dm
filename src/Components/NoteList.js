@@ -45,7 +45,7 @@ class NoteList extends React.Component {
         name={note.name}
         modified={note.modified}
         onDelete={this.handleDelete}/>
-    ))
+    ));
 
     return (
       <ul>

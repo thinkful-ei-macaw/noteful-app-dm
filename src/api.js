@@ -1,11 +1,25 @@
 const BASE_URL = 'http://localhost:9090/';
 
 const doFetch = (...params) => {
+  let error;
   return fetch(...params)
     .then(res => {
+      if (!res.ok) error = res.status;
+      if (!res.headers.get('content-type').includes('json')) {
+        error = res.statusText;
+        return Promise.reject(error);
+      }
+
       return res.json();
     })
-    .catch(err => Promise.reject('Something went wrong.'));
+    .then(data => {
+      if (error) {
+        error = data.message;
+        return Promise.reject(error);
+      }
+
+      return data;
+    });
 }
 
 const getFolders = () => {
