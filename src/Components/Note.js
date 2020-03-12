@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 
 class Note extends React.Component {
   render() {
@@ -15,6 +15,12 @@ class Note extends React.Component {
       </li>
     )
   }
+}
+
+Note.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  modified: PropTypes.string
 }
 
 export default Note;

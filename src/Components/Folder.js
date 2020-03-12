@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Folder extends React.Component {
   render(){
@@ -9,6 +10,12 @@ class Folder extends React.Component {
       </li>
     );
   }
+}
+
+Folder.propTypes = {
+  active: PropTypes.bool,
+  id: PropTypes.string,
+  name: PropTypes.string
 }
 
 export default Folder;

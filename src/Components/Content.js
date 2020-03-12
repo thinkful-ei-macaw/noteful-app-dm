@@ -9,17 +9,15 @@ class Content extends React.Component {
     return (
       <section className='content'>            
         <Switch>
-          <Route path="/note/:id" render={props => (
-            <NoteList {...props} view="note" />
+          <Route path="/note/:id" component={props => (
+            <NoteList {...props} view="note"/>
           )}/>
 
-          <Route path="/folder/:id" render={props => (
+          <Route path="/folder/:id" component={props => (
             <NoteList {...props} view="folder"/>
           )} />
 
-          <Route render={props => (
-            <NoteList {...props}/>
-          )} />
+          <Route component={NoteList} />
         </Switch>
       </section>
     )

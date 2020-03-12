@@ -1,8 +1,9 @@
 import React from 'react';
 import Note from './Note'
 import SelectedNote from './SelectedNote';
-import DataContext from '../DataContext';
+import PropTypes from 'prop-types';
 
+import DataContext from '../DataContext';
 import api from '../api';
 
 class NoteList extends React.Component {
@@ -58,6 +59,10 @@ class NoteList extends React.Component {
         
     )
   }
+}
+
+NoteList.propTypes = {
+  view: PropTypes.string
 }
 
 export default NoteList;
