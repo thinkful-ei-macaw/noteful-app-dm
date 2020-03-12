@@ -57,7 +57,7 @@ class App extends React.Component {
     this.setState(currentState);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     api.getFolders()
       .then(data => {
         this.setState({ folders: data });
