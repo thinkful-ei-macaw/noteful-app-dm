@@ -17,6 +17,7 @@
   border-radius: .3rem;
   box-shadow: 0 .3rem .5rem rgba(0,0,0,0.2);
   width: 50%;
+  max-width: 480px;
 }
 
 .overlay form h2 {
@@ -27,6 +28,15 @@
 .overlay form label {
   font-weight: bold;
   color: gray;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.overlay form label span {
+  font-weight: normal;
+  font-size: 0.8em;
+  color: red;
 }
 
 .overlay form input,
@@ -46,10 +56,6 @@
   resize: none;
 }
 
-.overlay form [disabled] {
-  cursor: not-allowed;
-}
-
 .overlay form button {
   margin-top: 0.5rem;
   background: #8881D8;
@@ -65,4 +71,11 @@
 
 .overlay form button:hover {
   background: rgb(114, 108, 180);
+}
+
+.overlay form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background: gray;
+  user-select: none;
 }
