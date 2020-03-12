@@ -39,11 +39,12 @@ class AddNote extends React.Component {
 
   validate = e => {
     let input = e.target;
+    let value= input.value.trim()
     this.setState({
       [input.name]: {
-        value: input.value.trim(),
+        value,
         touched: true,
-        error: input.value.trim() === '' ? 'This field is required.' : null
+        error: value === '' ? 'This field is required.' : null
       },
     });
   }
@@ -61,7 +62,8 @@ class AddNote extends React.Component {
     api.addNote(note)
       .then(() => {
         this.context.addNoteSubmit(note);
-      });
+      })
+      .catch((err)=>alert(err));
   }
 
   render() {

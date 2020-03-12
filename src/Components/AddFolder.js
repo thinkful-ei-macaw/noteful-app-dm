@@ -31,11 +31,12 @@ class AddFolder extends React.Component {
 
   validate = e => {
     let input = e.target;
+    let value = input.value.trim();
     this.setState({
       [input.name]: {
-        value: input.value.trim(),
+        value,
         touched: true,
-        error: input.value.trim() === '' ? 'This field is required.' : null
+        error: value === '' ? 'This field is required.' : null
       },
     });
   }
@@ -50,7 +51,8 @@ class AddFolder extends React.Component {
     api.addFolder(folder)
       .then(() => {
         this.context.addFolderSubmit(folder);
-      });
+      })
+      .catch((err)=>alert(err));
   }
 
   render() {

@@ -34,6 +34,7 @@ const addNote = note => {
 
 const deleteNote = id => {
   return doFetch(BASE_URL + 'notes/' + id, {
+    headers: {'content-type': 'application/json'},
     method: 'DELETE'
   });
 }

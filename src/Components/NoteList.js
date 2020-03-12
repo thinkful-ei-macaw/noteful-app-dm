@@ -9,7 +9,6 @@ class NoteList extends React.Component {
   static contextType = DataContext;
 
   handleDelete = id => {
-
     api.deleteNote(id)
       .then(() => {
 

@@ -4,6 +4,7 @@ import Sidebar from './Components/Sidebar';
 import Content from './Components/Content';
 import Header from './Components/Header';
 import Overlay from './Components/Overlay';
+import ErrorBoundary from './Components/ErrorBoundary';
 
 import api from './api';
 
@@ -66,7 +67,7 @@ class App extends React.Component {
         })
       })
       .catch(err => {
-        console.error(err);
+        alert(err);
       })
   }
 
@@ -82,12 +83,14 @@ class App extends React.Component {
     return (
       <DataContext.Provider value={contextValue}>
         <div className="app">
+        <ErrorBoundary>
           <Header />
           <main>
             <Sidebar />
             <Content />
           </main>
           { this.state.dialogOpen ? (<Overlay />) : '' }
+        </ErrorBoundary>  
         </div>
       </DataContext.Provider>
     );
