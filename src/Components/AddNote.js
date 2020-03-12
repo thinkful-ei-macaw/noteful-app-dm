@@ -5,7 +5,7 @@ import DataContext from '../DataContext';
 
 import api from '../api';
 
-class NoteForm extends React.Component {
+class AddNote extends React.Component {
   static contextType = DataContext;
 
   handleSubmit = e => {
@@ -70,4 +70,4 @@ class NoteForm extends React.Component {
   }
 }
 
-export default NoteForm;
+export default AddNote;

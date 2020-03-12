@@ -4,7 +4,7 @@ import DataContext from '../DataContext';
 
 import api from '../api';
 
-class FolderForm extends React.Component {
+class AddFolder extends React.Component {
   static contextType = DataContext;
 
   handleSubmit = e => {
@@ -37,4 +37,4 @@ class FolderForm extends React.Component {
   }
 }
 
-export default FolderForm;
+export default AddFolder;

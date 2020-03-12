@@ -1,8 +1,8 @@
 import React from 'react';
 import './Overlay.css';
 
-import FolderForm from './FolderForm';
-import NoteForm from './NoteForm';
+import AddFolder from './AddFolder';
+import AddNote from './AddNote';
 
 import DataContext from '../DataContext';
 
@@ -13,9 +13,9 @@ class Overlay extends React.Component {
     return (
       <div className="overlay" onClick={() => this.context.addClick()}>
         {this.context.data.addMode === 'folder' ? (
-          <FolderForm />
+          <AddFolder />
         ) : (
-          <NoteForm />
+          <AddNote />
         )}
       </div>
     )
