@@ -6,10 +6,25 @@ import api from '../api';
 
 class AddFolder extends React.Component {
   static contextType = DataContext;
+  state={name:""}
+
+  validateAddFolder = (form) => {
+    let formValid = true;
+    if(form.name.value===""){
+      this.setState({name:"Name is required"});
+      formValid = false;
+    }
+ 
+
+    return formValid;
+  }
+
+  
 
   handleSubmit = e => {
     e.preventDefault();
     let form = e.target;
+    if(!this.validateAddFolder(form))return false;
     let folder = {
       id: cuid(),
       name: form.name.value
@@ -29,7 +44,8 @@ class AddFolder extends React.Component {
         <h2>Add Folder</h2>
         <div>
           <label htmlFor="name">Name:</label>
-          <input required autoComplete="off" type="text" name="name" id="name" placeholder="A Cool Name..."/>
+          <input autoComplete="off" type="text" name="name" id="name" placeholder="A Cool Name..."/>
+          <p>{this.state.name}</p>
         </div>
         <button>Submit</button>
       </form>
