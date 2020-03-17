@@ -1,6 +1,7 @@
 .app main {
   display: flex;
   height: 100vh;
+  flex-direction: column;
 }
 
 .app .error {
@@ -21,4 +22,10 @@
 .app .error span {
   font-weight: bold;
   color: pink;
+}
+
+@media screen and (min-width: 860px) {
+  .app main {
+    flex-direction: row;
+  }
 }

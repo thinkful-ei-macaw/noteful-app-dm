@@ -1,16 +1,24 @@
 .sidebar {
-  width: 15rem;
   background: #8881D8;
   color: white;
-  padding-top: 6rem;
-  height: 100%;
+  padding-top: 4rem;
+  box-shadow: 0 .2rem 1rem rgba(0,0,0,0.1);
+}
+
+.sidebar article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  border-bottom: 3px solid transparent;
 }
 
 .sidebar article button {
-  margin-bottom: 1rem;
+  padding: 1rem 2rem;
 }
 
 .sidebar article h3 {
+  font-size: 1rem;
   padding: 1rem 2rem;
   margin: 0;
   text-align: right;
@@ -23,14 +31,20 @@
   opacity: 0.5;
 }
 
-.sidebar ul li {
-  font-weight: bold;
-  border-left: 5px solid transparent;
-  transition: all .2s ease;
+.sidebar ul {
+  /* display: flex; */
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
+  overflow-x: auto;
 }
 
-.sidebar ul li:not(:last-of-type):hover {
-  background: rgba(0,0,0,0.2);
+.sidebar ul li {
+  display: inline-block;
+  font-weight: bold;
+  border-bottom: 3px solid transparent;
+  background: #8881D8;
+  transition: all .2s ease;
 }
 
 .sidebar ul li.active {
@@ -44,24 +58,56 @@
   color: inherit;
 }
 
-.sidebar ul li:last-of-type {
-  margin-top: 4rem;
-}
-
 .sidebar button {
-  margin-top: 1rem;
-  margin-left: 2rem;
-  background: rgba(0,0,0,0.2);
-  width: calc(100% - 4rem);
+  background: none;
   border: none;
   padding: 1rem;
   color: inherit;
+  font-size: inherit;
   font-weight: bold;
   cursor: pointer;
   transition: all .2s ease;
   border-radius: .3rem;
 }
 
-.sidebar button:hover {
-  background: rgba(0,0,0,0.4);
+@media screen and (min-width: 860px) {
+  .sidebar {
+    width: 15rem;
+    padding-top: 6rem;
+    height: 100%;
+  }
+
+  .sidebar article {
+    display: block;
+  }
+  
+  .sidebar article button {
+    margin-bottom: 1rem;
+  }
+
+  .sidebar ul {
+    display: block;
+    text-align: left;
+  }
+  
+  .sidebar ul li {
+    display: block;
+    border-bottom: none;
+    border-left: 5px solid transparent;
+  }
+  
+  .sidebar ul li:not(:last-of-type):hover {
+    background: rgba(0,0,0,0.2);
+  }
+  
+  .sidebar button {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    background: rgba(0,0,0,0.2);
+    width: calc(100% - 4rem);
+  }
+  
+  .sidebar button:hover {
+    background: rgba(0,0,0,0.4);
+  }
 }
